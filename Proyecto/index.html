@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar sesión / Registrarse</title>
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <style>
+        .gold {
+            color: #d4af37;
+        }
+
+        .gold-bg {
+            background-color: #d4af37;
+        }
+
+        .gold-border {
+            border-color: #d4af37;
+        }
+
+        .gold-shadow {
+            box-shadow: 0 4px 6px rgba(212, 175, 55, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 flex justify-center items-center min-h-screen">
+    <div class="bg-gray-900 p-8 rounded-lg shadow-lg w-96 gold-shadow">
+        <div class="flex justify-center mb-6">
+            <button id="loginTab" class="w-1/2 py-2 bg-black text-white border-2 border-gold rounded-t-lg focus:outline-none hover:bg-gray-800">Iniciar sesión</button>
+            <button id="registerTab" class="w-1/2 py-2 bg-gray-800 text-white border-2 border-gold rounded-t-lg focus:outline-none hover:bg-gray-700">Registrarse</button>
+        </div>
+        <div id="loginForm">
+            <h2 class="text-2xl font-semibold mb-4 text-center gold">Iniciar sesión</h2>
+            <form id="login">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-300">Número de celular</label>
+                    <input type="text" id="loginPhone" class="w-full p-3 border border-gray-500 rounded-lg mt-1 bg-gray-700 text-white placeholder-gray-300 focus:ring-2 focus:ring-gold" placeholder="Ingresa tu número" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-300">Contraseña</label>
+                    <input type="password" id="loginPassword" class="w-full p-3 border border-gray-500 rounded-lg mt-1 bg-gray-700 text-white placeholder-gray-300 focus:ring-2 focus:ring-gold" placeholder="Ingresa tu contraseña" required>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gold text-black rounded-lg hover:bg-gold-700">Iniciar sesión</button>
+            </form>
+            <p class="mt-4 text-center text-sm text-gray-300">¿No tienes cuenta? <a href="#" class="text-gold" id="toRegister">Regístrate aquí</a></p>
+            <div id="loginError" class="text-red-500 text-center mt-2 hidden">Número o contraseña incorrectos.</div>
+        </div>
+        <div id="registerForm" class="hidden">
+            <h2 class="text-2xl font-semibold mb-4 text-center gold">Registrarse</h2>
+            <form id="register">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-300">Número de celular</label>
+                    <input type="text" id="registerPhone" class="w-full p-3 border border-gray-500 rounded-lg mt-1 bg-gray-700 text-white placeholder-gray-300 focus:ring-2 focus:ring-gold" placeholder="Ingresa tu número" required>
+                    <div id="phoneError" class="text-red-500 text-sm hidden">El número debe tener entre 10 y 13 dígitos y contener solo números.</div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-300">Nombre de usuario</label>
+                    <input type="text" id="registerUsername" class="w-full p-3 border border-gray-500 rounded-lg mt-1 bg-gray-700 text-white placeholder-gray-300 focus:ring-2 focus:ring-gold" placeholder="Elige un nombre de usuario" required>
+                    <div id="usernameError" class="text-red-500 text-sm hidden">El nombre de usuario debe tener al menos 4 palabras y 2 números.</div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-300">Contraseña de inicio</label>
+                    <input type="password" id="registerPassword" class="w-full p-3 border border-gray-500 rounded-lg mt-1 bg-gray-700 text-white placeholder-gray-300 focus:ring-2 focus:ring-gold" placeholder="Crea una contraseña" required>
+                    <div id="passwordError" class="text-red-500 text-sm hidden">La contraseña debe tener al menos 4 palabras y 2 números.</div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-300">Contraseña de retiro de fondo</label>
+                    <input type="password" id="withdrawPassword" class="w-full p-3 border border-gray-500 rounded-lg mt-1 bg-gray-700 text-white placeholder-gray-300 focus:ring-2 focus:ring-gold" placeholder="Crea una contraseña de retiro" required>
+                    <div id="withdrawPasswordError" class="text-red-500 text-sm hidden">La contraseña de retiro debe tener al menos 4 palabras y 2 números.</div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-300">Código de verificación:</label>
+                    <input type="text" id="verificationCode" class="w-full p-3 border border-gray-500 rounded-lg mt-1 bg-gray-700 text-white" value="558013" disabled>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gold text-black rounded-lg hover:bg-gold-700">Registrarse</button>
+            </form>
+            <p class="mt-4 text-center text-sm text-gray-300">¿Ya tienes cuenta? <a href="#" class="text-gold" id="toLogin">Inicia sesión aquí</a></p>
+            <div id="registerError" class="text-red-500 text-center mt-2 hidden"></div>
+        </div>
+    </div>
+    <script src="Registro.js" defer></script>
+    <script src="login.js" defer></script>
+</body>
+</html>
